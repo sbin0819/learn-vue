@@ -6,9 +6,19 @@
     <body>
         
         <div id="app">
-            {{ message }}
+             <h1>{{title}}</h1>
+             <button v-if='!isShow' v-on:click='onHandleShow'>open todo list</button>
+             <button v-if='isShow'  v-on:click='onHandleShow'>close todo list</button>
+             <div v-if="isShow">
+                 <br />
+                 <todo-list
+                    v-for='todo in todos'
+                    v-bind:todo='todo'
+                    v-bind:key='todo.id'
+                 ></todo-list>
+             </div>
         </div>
-        
+       
         <script src="index.js"></script>
     </body>
 </html>
